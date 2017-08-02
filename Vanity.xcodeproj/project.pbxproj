@@ -7,11 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1BF0EF468ACE080773B95456 /* Pods_Vanity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE728ADEB7B431934AF6BC3F /* Pods_Vanity.framework */; };
 		7A7305D61F3009D30022A2CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7305D51F3009D30022A2CD /* AppDelegate.swift */; };
 		7A7305D81F3009D30022A2CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7305D71F3009D30022A2CD /* ViewController.swift */; };
 		7A7305DB1F3009D30022A2CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A7305D91F3009D30022A2CD /* Main.storyboard */; };
 		7A7305DD1F3009D30022A2CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A7305DC1F3009D30022A2CD /* Assets.xcassets */; };
 		7A7305E01F3009D30022A2CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A7305DE1F3009D30022A2CD /* LaunchScreen.storyboard */; };
+		7AFFA1EE1F325D490001D162 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFFA1ED1F325D490001D162 /* UserService.swift */; };
+		7AFFA1F31F325DB80001D162 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFFA1F21F325DB80001D162 /* User.swift */; };
+		7AFFA1F61F325E110001D162 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFFA1F51F325E110001D162 /* Constants.swift */; };
+		7AFFA1F91F325E580001D162 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AFFA1F81F325E580001D162 /* Storyboard.storyboard */; };
+		7AFFA1FC1F325EDA0001D162 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFFA1FB1F325EDA0001D162 /* LoginViewController.swift */; };
+		7AFFA1FF1F3260760001D162 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFFA1FE1F3260760001D162 /* Helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +29,15 @@
 		7A7305DC1F3009D30022A2CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A7305DF1F3009D30022A2CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7A7305E11F3009D30022A2CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7AFFA1ED1F325D490001D162 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserService.swift; path = Vanity/Services/UserService.swift; sourceTree = "<group>"; };
+		7AFFA1F21F325DB80001D162 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Vanity/Models/User.swift; sourceTree = "<group>"; };
+		7AFFA1F51F325E110001D162 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = "Vanity/Supporting Files/Constants.swift"; sourceTree = "<group>"; };
+		7AFFA1F81F325E580001D162 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Storyboard.storyboard; path = Vanity/Storyboards/Storyboard.storyboard; sourceTree = "<group>"; };
+		7AFFA1FB1F325EDA0001D162 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = "Vanity/View Controllers/LoginViewController.swift"; sourceTree = "<group>"; };
+		7AFFA1FE1F3260760001D162 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Helpers.swift; path = Vanity/Helpers/Helpers.swift; sourceTree = "<group>"; };
+		8C5D84F26BCC2431CB7D333B /* Pods-Vanity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vanity.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vanity/Pods-Vanity.release.xcconfig"; sourceTree = "<group>"; };
+		9C1561C0370BDBD566E59506 /* Pods-Vanity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vanity.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vanity/Pods-Vanity.debug.xcconfig"; sourceTree = "<group>"; };
+		EE728ADEB7B431934AF6BC3F /* Pods_Vanity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vanity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +45,34 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BF0EF468ACE080773B95456 /* Pods_Vanity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		257EFF23497AE92EEE84A49F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EE728ADEB7B431934AF6BC3F /* Pods_Vanity.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7A7305C91F3009D30022A2CD = {
 			isa = PBXGroup;
 			children = (
+				7AFFA1FD1F3260560001D162 /* Helpers */,
+				7AFFA1FA1F325EC00001D162 /* View Controller */,
+				7AFFA1F71F325E460001D162 /* Storyboards */,
+				7AFFA1F41F325DF90001D162 /* Supporting Files */,
+				7AFFA1EF1F325D9B0001D162 /* Models */,
+				7AFFA1EC1F325D360001D162 /* Services */,
 				7A7305D41F3009D30022A2CD /* Vanity */,
 				7A7305D31F3009D30022A2CD /* Products */,
+				D5C22C049882C26B56D03A59 /* Pods */,
+				257EFF23497AE92EEE84A49F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +97,63 @@
 			path = Vanity;
 			sourceTree = "<group>";
 		};
+		7AFFA1EC1F325D360001D162 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				7AFFA1ED1F325D490001D162 /* UserService.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		7AFFA1EF1F325D9B0001D162 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7AFFA1F21F325DB80001D162 /* User.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		7AFFA1F41F325DF90001D162 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7AFFA1F51F325E110001D162 /* Constants.swift */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7AFFA1F71F325E460001D162 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				7AFFA1F81F325E580001D162 /* Storyboard.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		7AFFA1FA1F325EC00001D162 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7AFFA1FB1F325EDA0001D162 /* LoginViewController.swift */,
+			);
+			name = "View Controller";
+			sourceTree = "<group>";
+		};
+		7AFFA1FD1F3260560001D162 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				7AFFA1FE1F3260760001D162 /* Helpers.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		D5C22C049882C26B56D03A59 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9C1561C0370BDBD566E59506 /* Pods-Vanity.debug.xcconfig */,
+				8C5D84F26BCC2431CB7D333B /* Pods-Vanity.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +161,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7A7305E41F3009D30022A2CD /* Build configuration list for PBXNativeTarget "Vanity" */;
 			buildPhases = (
+				2BC4B2AB3DF8292A87BDD95A /* [CP] Check Pods Manifest.lock */,
 				7A7305CE1F3009D30022A2CD /* Sources */,
 				7A7305CF1F3009D30022A2CD /* Frameworks */,
 				7A7305D01F3009D30022A2CD /* Resources */,
+				2D2A0059538BDFEAAB90F768 /* [CP] Embed Pods Frameworks */,
+				D45A7D146CC2C87EB1A4950A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -125,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A7305E01F3009D30022A2CD /* LaunchScreen.storyboard in Resources */,
+				7AFFA1F91F325E580001D162 /* Storyboard.storyboard in Resources */,
 				7A7305DD1F3009D30022A2CD /* Assets.xcassets in Resources */,
 				7A7305DB1F3009D30022A2CD /* Main.storyboard in Resources */,
 			);
@@ -132,13 +226,66 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2BC4B2AB3DF8292A87BDD95A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		2D2A0059538BDFEAAB90F768 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Vanity/Pods-Vanity-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D45A7D146CC2C87EB1A4950A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Vanity/Pods-Vanity-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7A7305CE1F3009D30022A2CD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AFFA1FC1F325EDA0001D162 /* LoginViewController.swift in Sources */,
+				7AFFA1FF1F3260760001D162 /* Helpers.swift in Sources */,
+				7AFFA1F61F325E110001D162 /* Constants.swift in Sources */,
+				7AFFA1F31F325DB80001D162 /* User.swift in Sources */,
 				7A7305D81F3009D30022A2CD /* ViewController.swift in Sources */,
 				7A7305D61F3009D30022A2CD /* AppDelegate.swift in Sources */,
+				7AFFA1EE1F325D490001D162 /* UserService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +406,7 @@
 		};
 		7A7305E51F3009D30022A2CD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C1561C0370BDBD566E59506 /* Pods-Vanity.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = KWK86AMUQU;
@@ -272,6 +420,7 @@
 		};
 		7A7305E61F3009D30022A2CD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C5D84F26BCC2431CB7D333B /* Pods-Vanity.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = KWK86AMUQU;
@@ -302,6 +451,7 @@
 				7A7305E61F3009D30022A2CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
