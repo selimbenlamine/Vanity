@@ -15,32 +15,53 @@ class User: NSObject {
     
     let uid: String
     let username: String
+    let name: String
+    let email: String
+
+    var dictValue: [String : Any] {
+        return ["username": username,
+                "name": name,
+                "email" : email]
+    }
+
     
     // MARK: - Init
     
-    init(uid: String, username: String) {
+    init(uid: String, username: String, name: String, email: String) {
         self.uid = uid
         self.username = username
+        self.name = name
+        self.email = email
         super.init()
     }
     
     init?(snapshot: DataSnapshot) {
         guard let dict = snapshot.value as? [String : Any],
-        let username = dict["username"] as? String
+        let username = dict["username"] as? String,
+        let name = dict["name"] as? String,
+        let email = dict["email"] as? String
         else { return nil }
         
         self.uid = snapshot.key
         self.username = username
+        self.name = name
+        self.email = email
         super.init()
     }
     
+    
+    
     required init?(coder aDecoder: NSCoder) {
         guard let uid = aDecoder.decodeObject(forKey: Constants.UserDefaults.uid) as? String,
-            let username = aDecoder.decodeObject(forKey: Constants.UserDefaults.username) as? String
+            let username = aDecoder.decodeObject(forKey: Constants.UserDefaults.username) as? String,
+            let name = aDecoder.decodeObject(forKey: Constants.UserDefaults.name) as? String,
+            let email = aDecoder.decodeObject(forKey: Constants.UserDefaults.email) as? String
             else { return nil }
         
         self.uid = uid
         self.username = username
+        self.name = name
+        self.email = email
         
         super.init()
     }
@@ -64,17 +85,17 @@ class User: NSObject {
     // MARK: - Class Methods
     
     // 1
-    class func setCurrent(_ user: User, writeToUserDefaults: Bool = false) {
+    class func setCurrent(_ User: User, writeToUserDefaults: Bool = false) {
         // 2
         if writeToUserDefaults {
             // 3
-            let data = NSKeyedArchiver.archivedData(withRootObject: user)
+            let data = NSKeyedArchiver.archivedData(withRootObject: User)
             
             // 4
             UserDefaults.standard.set(data, forKey: Constants.UserDefaults.currentUser)
         }
         
-        _current = user
+        _current = User
     }
 }
 
@@ -82,5 +103,7 @@ extension User: NSCoding {
     func encode(with aCoder: NSCoder) {
         aCoder.encode(uid, forKey: Constants.UserDefaults.uid)
         aCoder.encode(username, forKey: Constants.UserDefaults.username)
+        aCoder.encode(name, forKey:Constants.UserDefaults.username)
+        aCoder.encode(email, forKey: Constants.UserDefaults.username)
     }
 }

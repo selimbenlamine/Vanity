@@ -10,6 +10,8 @@ import UIKit
 import FirebaseAuth
 import FirebaseAuthUI
 import FirebaseDatabase
+import FirebaseFacebookAuthUI
+
 
 typealias FIRUser = FirebaseAuth.User
 
@@ -19,63 +21,100 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         nextButton.layer.cornerRadius = 6
     }
+    
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var nextButton: UIButton!
+    
     @IBAction func nextButtonTapped(_ sender: UIButton) {
+        guard let username = usernameTextField.text,
+            let password = passwordTextField.text,
+            let email = emailTextField.text,
+            let name = nameTextField.text
+            else {
+                return
+        }
         
-        guard let firUser = Auth.auth().currentUser,
-            let username = usernameTextField.text,
-            !username.isEmpty else { return }
-        
-        
-        UserService.create(firUser, username: username) { (user) in
-            guard let user = user else {
-                // handle error
+        AuthService.createUser(controller: self, email: email, password: password) { (authUser) in
+            guard let firUser = authUser else {
                 return
             }
             
-            guard let firUser = Auth.auth().currentUser,
-                let name = self.nameTextField.text,
-                !name.isEmpty else { return }
-            
-            
-            UserService.create(firUser, name: name) { (user) in
-                guard user != nil else {
+            UserService.create(firUser, username: username, name: name, email: email) { (user) in
+                guard let user = user else {
                     // handle error
                     return
                 }
-            }
-            guard let email = self.emailTextField.text, let password = self.passwordTextField.text else { return }
-            Auth.auth().createUser(withEmail: email, password: password) { [weak self] (user, error) in
-                if let error = error {
+                
+                    User.setCurrent(user, writeToUserDefaults: true)
                     
-                    self?.alert(message: error.localizedDescription)
-                    return
+                    let storyboard = UIStoryboard(name: "Main", bundle: .main)
+                    if let initialViewController = storyboard.instantiateInitialViewController() {
+                        self.view.window?.rootViewController = initialViewController
+                        self.view.window?.makeKeyAndVisible()
+                    }
                 }
-                Database.database().reference().child("Users").child(user!.uid).updateChildValues(["email": email, "username": username, "name": name])
-                let changeRequest = user!.createProfileChangeRequest()
-                changeRequest.displayName = username
-                changeRequest.commitChanges(completion: nil)
-                
-                
             }
-            User.setCurrent(user, writeToUserDefaults: true)
-            
-            let storyboard = UIStoryboard(name: "Main", bundle: .main)
-            if let initialViewController = storyboard.instantiateInitialViewController() {
-                self.view.window?.rootViewController = initialViewController
-                self.view.window?.makeKeyAndVisible()
-            }
-            
-            
         }
-    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.usernameTextField.resignFirstResponder()
         self.passwordTextField.resignFirstResponder()
         self.emailTextField.resignFirstResponder()
         self.nameTextField.resignFirstResponder()
+    }
+    
+}
+
+class SignInViewController: UIViewController {
+    
+    
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    
+    
+    @IBAction func LoginButton(_ sender: Any) {
+        
+        
+        if self.emailTextField.text == ""
+            || self.passwordTextField.text == "" {
+            let alertController = UIAlertController(title: "Error", message: "Please enter an email and a a password", preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+            alertController.addAction(defaultAction)
+            self.present(alertController, animated: true, completion: nil)
+            
+        } else {
+            AuthService.signIn(controller: self, email: emailTextField.text!, password: passwordTextField.text!) { (user) in
+                guard user != nil else {
+                    // look back here
+                    print("error: FiRuser dees not exist")
+                    return
+                }
+                
+                print("user is signed in")
+                UserService.show(forUID: (user?.uid)!) { (user) in
+                    if let user = user {
+                        User.setCurrent(user, writeToUserDefaults: true)
+                        self.finishLoggingIn()
+                        print("user defaults set")
+                    }
+                    else {
+                        print("error: User does not exist!")
+                        return
+                    }
+                }
+                
+                
+                
+            }
+        }
+    }
+    func finishLoggingIn() {
+        let storyboard = UIStoryboard(name: "Main", bundle: .main)
+        if let initialViewController = storyboard.instantiateInitialViewController() {
+            self.view.window?.rootViewController = initialViewController
+            self.view.window?.makeKeyAndVisible()
+        }
     }
 }

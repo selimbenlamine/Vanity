@@ -11,10 +11,13 @@ import FirebaseDatabase
 import FirebaseAuth.FIRUser
 
 struct UserService {
-    static func create(_ firUser: FIRUser, username: String, completion: @escaping (User?) -> Void) {
-        let userAttrs = ["username": username, ]
+    static func create(_ firUser: FIRUser, username: String, name: String, email: String, completion: @escaping (User?) -> Void) {
+       // let userAttrs = User.userDict
         
-        let ref = Database.database().reference().child("Users").child(firUser.uid)
+        let userAttrs = ["username": username, "name": name, "email": email]
+
+        
+        let ref = Database.database().reference().child("users").child(firUser.uid)
         ref.setValue(userAttrs) { (error, ref) in
             if let error = error {
                 assertionFailure(error.localizedDescription)
@@ -30,7 +33,7 @@ struct UserService {
     static func create(_ firUser: FIRUser, name: String, completion: @escaping (User?) -> Void) {
         let userAttrs = ["name": name]
         
-        let ref = Database.database().reference().child("Users").child(firUser.uid)
+        let ref = Database.database().reference().child("users").child(firUser.uid)
         ref.setValue(userAttrs) { (error, ref) in
             if let error = error {
                 assertionFailure(error.localizedDescription)
@@ -43,4 +46,14 @@ struct UserService {
             })
         }
     }
+    static func show(forUID uid: String, completion: @escaping (User?) -> Void) {
+        let ref = Database.database().reference().child("Users").child(uid)
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let user = User(snapshot: snapshot) else {
+                return completion(nil)
+            }
+            
+            completion(user)
+        })
+}
 }
