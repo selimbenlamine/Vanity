@@ -1,8 +1,8 @@
 //
-//  LoginViewController.swift
+//  SignInViewController.swift
 //  Vanity
 //
-//  Created by Selim Ben Lamine on 8/2/17.
+//  Created by Selim Ben Lamine on 8/4/17.
 //  Copyright © 2017 Selim Ben Lamine. All rights reserved.
 //
 
@@ -12,109 +12,173 @@ import FirebaseAuthUI
 import FirebaseDatabase
 import FirebaseFacebookAuthUI
 
-
-typealias FIRUser = FirebaseAuth.User
-
-class SignUpViewController: UIViewController {
-    @IBOutlet weak var nameTextField: UITextField!
+class SignInViewController: UIViewController, FUIAuthDelegate {
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        nextButton.layer.cornerRadius = 6
+        //
+        
     }
     
-    @IBOutlet weak var usernameTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var nextButton: UIButton!
     
-    @IBAction func nextButtonTapped(_ sender: UIButton) {
-        guard let username = usernameTextField.text,
-            let password = passwordTextField.text,
-            let email = emailTextField.text,
-            let name = nameTextField.text
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if let _ = Auth.auth().currentUser {
+            //self.signIn()
+        }
+    }
+    
+    @IBAction func didTapSignIn(_ sender: UIButton) {
+        let email = emailField.text
+        let password = passwordField.text
+        
+        Auth.auth().signIn(withEmail: email!, password: password!, completion: { (user, error) in
+            if let _ = user {
+                self.signIn()
+                print("User signed in")
+            }
             else {
-                return
-        }
-        
-        AuthService.createUser(controller: self, email: email, password: password) { (authUser) in
-            guard let firUser = authUser else {
-                return
-            }
-            
-            UserService.create(firUser, username: username, name: name, email: email) { (user) in
-                guard let user = user else {
-                    // handle error
+                if let error = error {
+                    if let errCode = AuthErrorCode(rawValue: error._code) {
+                        switch errCode {
+                        case .userNotFound:
+                            self.showAlert("User account not found. Try registering")
+                        case .wrongPassword:
+                            self.showAlert("Incorrect username/password combination")
+                        default:
+                            self.showAlert("Error: \(error.localizedDescription)")
+                        }
+                    }
                     return
                 }
-                
-                    User.setCurrent(user, writeToUserDefaults: true)
-                    
-                    let storyboard = UIStoryboard(name: "Main", bundle: .main)
-                    if let initialViewController = storyboard.instantiateInitialViewController() {
-                        self.view.window?.rootViewController = initialViewController
-                        self.view.window?.makeKeyAndVisible()
-                    }
-                }
+                assertionFailure("user and error are nil")
+                return
             }
-        }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.usernameTextField.resignFirstResponder()
-        self.passwordTextField.resignFirstResponder()
-        self.emailTextField.resignFirstResponder()
-        self.nameTextField.resignFirstResponder()
+        })
     }
     
-}
-
-class SignInViewController: UIViewController {
-    
-    
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    
-    
-    @IBAction func LoginButton(_ sender: Any) {
-        
-        
-        if self.emailTextField.text == ""
-            || self.passwordTextField.text == "" {
-            let alertController = UIAlertController(title: "Error", message: "Please enter an email and a a password", preferredStyle: .alert)
-            let defaultAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-            alertController.addAction(defaultAction)
-            self.present(alertController, animated: true, completion: nil)
-            
-        } else {
-            AuthService.signIn(controller: self, email: emailTextField.text!, password: passwordTextField.text!) { (user) in
-                guard user != nil else {
-                    // look back here
-                    print("error: FiRuser dees not exist")
+    @IBAction func didRequestPasswordReset(_ sender: UIButton) {
+        let prompt = UIAlertController(title: "To Do App", message: "Email:", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+            let userInput = prompt.textFields![0].text
+            if (userInput!.isEmpty) {
+                return
+            }
+            Auth.auth().sendPasswordReset(withEmail: userInput!, completion: { (error) in
+                if let error = error {
+                    if let errCode = AuthErrorCode(rawValue: error._code) {
+                        switch errCode {
+                        case .userNotFound:
+                            DispatchQueue.main.async {
+                                self.showAlert("User account not found. Try registering")
+                            }
+                        default:
+                            DispatchQueue.main.async {
+                                self.showAlert("Error: \(error.localizedDescription)")
+                            }
+                        }
+                    }
                     return
-                }
-                
-                print("user is signed in")
-                UserService.show(forUID: (user?.uid)!) { (user) in
-                    if let user = user {
-                        User.setCurrent(user, writeToUserDefaults: true)
-                        self.finishLoggingIn()
-                        print("user defaults set")
-                    }
-                    else {
-                        print("error: User does not exist!")
-                        return
+                } else {
+                    DispatchQueue.main.async {
+                        self.showAlert("You'll receive an email shortly to reset your password.")
                     }
                 }
-                
-                
-                
-            }
+            })
         }
+        prompt.addTextField(configurationHandler: nil)
+        prompt.addAction(okAction)
+        present(prompt, animated: true, completion: nil)
     }
-    func finishLoggingIn() {
+    
+    func showAlert(_ message: String) {
+        let alertController = UIAlertController(title: "BoxScan", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+     func signIn() {
         let storyboard = UIStoryboard(name: "Main", bundle: .main)
         if let initialViewController = storyboard.instantiateInitialViewController() {
             self.view.window?.rootViewController = initialViewController
             self.view.window?.makeKeyAndVisible()
         }
+        
+    }
+    @IBAction func fbLoginButtonTapped(_ sender: UIButton) {
+        guard let authUI = FUIAuth.defaultAuthUI()
+            else { return }
+        
+        authUI.delegate = self
+        
+        // configure Auth UI for Facebook login
+        let providers: [FUIAuthProvider] = [FUIFacebookAuth()]
+        authUI.providers = providers
+        
+        let authViewController = authUI.authViewController()
+        present(authViewController, animated: true)
+        
+       // let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
+        //let loginViewController = storyboard.instantiateViewController(withIdentifier: "createUsername")
+        //let viewController = createUsername()
+        //self.present(viewController, animated: true, completion: nil)
+        
+    }
+    
+    func authUI(_ authUI: FUIAuth, didSignInWith user: FIRUser?, error: Error?) {
+        if let error = error {
+            assertionFailure("Error signing in: \(error.localizedDescription)")
+            return
+        }
+        
+        // 1
+        guard let user = user
+            else { return }
+        
+        // 2
+        
+        UserService.show(forUID: user.uid) { (user) in
+            if let user = user {
+                // handle existing user
+                User.setCurrent(user, writeToUserDefaults: true)
+                print ("User logged in.")
+                let storyboard = UIStoryboard(name: "SignUp", bundle: .main)
+                if let initialViewController = storyboard.instantiateInitialViewController() {
+                    self.view.window?.rootViewController = initialViewController
+                    self.view.window?.makeKeyAndVisible()
+
+            }
+        }
+    }
+
+    
+}
+}
+/*
+extension SignUpViewController: FUIAuthDelegate {
+    func authUI(_ authUI: FUIAuth, didSignInWith user: FIRUser?, error: Error?) {
+        if let error = error {
+            assertionFailure("Error signing in: \(error.localizedDescription)")
+            return
+        }
+        
+        // 1
+        guard let user = user
+            else { return }
+        
+        // 2
+        
+        UserService.show(forUID: user.uid) { (user) in
+            if let user = user {
+                // handle existing user
+                User.setCurrent(user, writeToUserDefaults: true)
+                print ("User logged in.")
+                
+            }
+        }
     }
 }
+*/

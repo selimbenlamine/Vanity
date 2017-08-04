@@ -14,12 +14,14 @@
 		7A7305D81F3009D30022A2CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7305D71F3009D30022A2CD /* ViewController.swift */; };
 		7A7305DB1F3009D30022A2CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A7305D91F3009D30022A2CD /* Main.storyboard */; };
 		7A7305E01F3009D30022A2CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A7305DE1F3009D30022A2CD /* LaunchScreen.storyboard */; };
+		7AA3BD5F1F34B97D001D669F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA3BD5E1F34B97D001D669F /* LoginViewController.swift */; };
+		7AA3BD611F34C6F6001D669F /* CreateUsername.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA3BD601F34C6F6001D669F /* CreateUsername.swift */; };
 		7AAA28091F329AD500B5EA6C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AAA28081F329AD500B5EA6C /* GoogleService-Info.plist */; };
 		7AFFA1EE1F325D490001D162 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFFA1ED1F325D490001D162 /* UserService.swift */; };
 		7AFFA1F31F325DB80001D162 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFFA1F21F325DB80001D162 /* User.swift */; };
 		7AFFA1F61F325E110001D162 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFFA1F51F325E110001D162 /* Constants.swift */; };
 		7AFFA1F91F325E580001D162 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AFFA1F81F325E580001D162 /* SignUp.storyboard */; };
-		7AFFA1FC1F325EDA0001D162 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFFA1FB1F325EDA0001D162 /* LoginViewController.swift */; };
+		7AFFA1FC1F325EDA0001D162 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFFA1FB1F325EDA0001D162 /* SignUpViewController.swift */; };
 		7AFFA1FF1F3260760001D162 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFFA1FE1F3260760001D162 /* Helpers.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,12 +34,14 @@
 		7A7305DA1F3009D30022A2CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7A7305DF1F3009D30022A2CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7A7305E11F3009D30022A2CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7AA3BD5E1F34B97D001D669F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = "Vanity/View Controllers/LoginViewController.swift"; sourceTree = "<group>"; };
+		7AA3BD601F34C6F6001D669F /* CreateUsername.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateUsername.swift; path = "Vanity/View Controllers/CreateUsername.swift"; sourceTree = "<group>"; };
 		7AAA28081F329AD500B5EA6C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7AFFA1ED1F325D490001D162 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserService.swift; path = Vanity/Services/UserService.swift; sourceTree = "<group>"; };
 		7AFFA1F21F325DB80001D162 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Vanity/Models/User.swift; sourceTree = "<group>"; };
 		7AFFA1F51F325E110001D162 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = "Vanity/Supporting Files/Constants.swift"; sourceTree = "<group>"; };
 		7AFFA1F81F325E580001D162 /* SignUp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SignUp.storyboard; path = Vanity/Storyboards/SignUp.storyboard; sourceTree = "<group>"; };
-		7AFFA1FB1F325EDA0001D162 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = "Vanity/View Controllers/LoginViewController.swift"; sourceTree = "<group>"; };
+		7AFFA1FB1F325EDA0001D162 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = "Vanity/View Controllers/SignUpViewController.swift"; sourceTree = "<group>"; };
 		7AFFA1FE1F3260760001D162 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Helpers.swift; path = Vanity/Helpers/Helpers.swift; sourceTree = "<group>"; };
 		8C5D84F26BCC2431CB7D333B /* Pods-Vanity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vanity.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vanity/Pods-Vanity.release.xcconfig"; sourceTree = "<group>"; };
 		9C1561C0370BDBD566E59506 /* Pods-Vanity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vanity.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vanity/Pods-Vanity.debug.xcconfig"; sourceTree = "<group>"; };
@@ -142,7 +146,9 @@
 			children = (
 				7A7305D71F3009D30022A2CD /* ViewController.swift */,
 				7A7305D51F3009D30022A2CD /* AppDelegate.swift */,
-				7AFFA1FB1F325EDA0001D162 /* LoginViewController.swift */,
+				7AFFA1FB1F325EDA0001D162 /* SignUpViewController.swift */,
+				7AA3BD5E1F34B97D001D669F /* LoginViewController.swift */,
+				7AA3BD601F34C6F6001D669F /* CreateUsername.swift */,
 			);
 			name = "View Controller";
 			path = ..;
@@ -292,11 +298,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7AFFA1FC1F325EDA0001D162 /* LoginViewController.swift in Sources */,
+				7AFFA1FC1F325EDA0001D162 /* SignUpViewController.swift in Sources */,
 				7AFFA1FF1F3260760001D162 /* Helpers.swift in Sources */,
 				7AFFA1F61F325E110001D162 /* Constants.swift in Sources */,
 				7AFFA1F31F325DB80001D162 /* User.swift in Sources */,
 				7A7305D81F3009D30022A2CD /* ViewController.swift in Sources */,
+				7AA3BD611F34C6F6001D669F /* CreateUsername.swift in Sources */,
+				7AA3BD5F1F34B97D001D669F /* LoginViewController.swift in Sources */,
 				7A7305D61F3009D30022A2CD /* AppDelegate.swift in Sources */,
 				7AFFA1EE1F325D490001D162 /* UserService.swift in Sources */,
 				7A65D93C1F33A2A900AA0C7E /* AuthService.swift in Sources */,
