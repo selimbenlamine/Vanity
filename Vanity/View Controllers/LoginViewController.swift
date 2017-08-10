@@ -57,8 +57,11 @@ class SignInViewController: UIViewController, FUIAuthDelegate {
                 assertionFailure("user and error are nil")
                 return
             }
+            
         })
+
     }
+    
     
     @IBAction func didRequestPasswordReset(_ sender: UIButton) {
         let prompt = UIAlertController(title: "To Do App", message: "Email:", preferredStyle: .alert)
@@ -100,7 +103,7 @@ class SignInViewController: UIViewController, FUIAuthDelegate {
         self.present(alertController, animated: true, completion: nil)
     }
     
-     func signIn() {
+    func signIn() {
         let storyboard = UIStoryboard(name: "Main", bundle: .main)
         if let initialViewController = storyboard.instantiateInitialViewController() {
             self.view.window?.rootViewController = initialViewController
@@ -121,16 +124,11 @@ class SignInViewController: UIViewController, FUIAuthDelegate {
         let authViewController = authUI.authViewController()
         present(authViewController, animated: true)
         
-       // let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
-        //let loginViewController = storyboard.instantiateViewController(withIdentifier: "createUsername")
-        //let viewController = createUsername()
-        //self.present(viewController, animated: true, completion: nil)
-        
     }
     
     func authUI(_ authUI: FUIAuth, didSignInWith user: FIRUser?, error: Error?) {
         if let error = error {
-            assertionFailure("Error signing in: \(error.localizedDescription)")
+            print("Error signing in: \(error.localizedDescription)")
             return
         }
         
@@ -149,17 +147,33 @@ class SignInViewController: UIViewController, FUIAuthDelegate {
                 if let initialViewController = storyboard.instantiateInitialViewController() {
                     self.view.window?.rootViewController = initialViewController
                     self.view.window?.makeKeyAndVisible()
-
+                }
+                
+                
+            } else {
+                
+                
+                let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
+                let loginViewController = storyboard.instantiateViewController(withIdentifier: "createUsername")
+                self.view.window?.rootViewController = loginViewController
+                self.view.window?.makeKeyAndVisible()
+                
+                
+                
+                //let viewController = createUsername()
+                //self.present(viewController, animated: true, completion: nil)
             }
         }
-    }
 
+        
+    }
     
 }
-}
-/*
+
 extension SignUpViewController: FUIAuthDelegate {
     func authUI(_ authUI: FUIAuth, didSignInWith user: FIRUser?, error: Error?) {
+        
+        
         if let error = error {
             assertionFailure("Error signing in: \(error.localizedDescription)")
             return
@@ -181,4 +195,4 @@ extension SignUpViewController: FUIAuthDelegate {
         }
     }
 }
-*/
+

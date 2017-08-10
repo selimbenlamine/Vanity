@@ -30,7 +30,7 @@ struct UserService {
             })
         }
 }
-    static func create(_ firUser: FIRUser, name: String, completion: @escaping (User?) -> Void) {
+    /*static func create(_ firUser: FIRUser, name: String, completion: @escaping (User?) -> Void) {
         let userAttrs = ["name": name]
         
         let ref = Database.database().reference().child("users").child(firUser.uid)
@@ -46,6 +46,7 @@ struct UserService {
             })
         }
     }
+ */
     
     static func create(_ firUser: FIRUser, username: String, completion: @escaping (User?) -> Void) {
         let userAttrs = ["username": username,
