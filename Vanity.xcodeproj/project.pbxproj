@@ -139,12 +139,12 @@
 		7AFFA1F71F325E460001D162 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				7A7305D91F3009D30022A2CD /* Main.storyboard */,
-				7AA0BA161F3CB4F200A8A6BE /* MyEvent.storyboard */,
-				7AA0BA141F3CB49B00A8A6BE /* CreateEvent.storyboard */,
-				7AA0BA111F3CB43500A8A6BE /* Profile.storyboard */,
-				7AFFA1F81F325E580001D162 /* SignUp.storyboard */,
 				7A7305DE1F3009D30022A2CD /* LaunchScreen.storyboard */,
+				7AFFA1F81F325E580001D162 /* SignUp.storyboard */,
+				7A7305D91F3009D30022A2CD /* Main.storyboard */,
+				7AA0BA111F3CB43500A8A6BE /* Profile.storyboard */,
+				7AA0BA141F3CB49B00A8A6BE /* CreateEvent.storyboard */,
+				7AA0BA161F3CB4F200A8A6BE /* MyEvent.storyboard */,
 			);
 			name = Storyboards;
 			path = ..;
