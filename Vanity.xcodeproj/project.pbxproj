@@ -10,6 +10,7 @@
 		1BF0EF468ACE080773B95456 /* Pods_Vanity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE728ADEB7B431934AF6BC3F /* Pods_Vanity.framework */; };
 		7A65D93C1F33A2A900AA0C7E /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A65D93B1F33A2A900AA0C7E /* AuthService.swift */; };
 		7A6711401F337255007542EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A67113F1F337255007542EC /* Assets.xcassets */; };
+		7A71899D1F4219AB009590E5 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A71899C1F4219AB009590E5 /* UserProfile.swift */; };
 		7A7305D61F3009D30022A2CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7305D51F3009D30022A2CD /* AppDelegate.swift */; };
 		7A7305D81F3009D30022A2CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7305D71F3009D30022A2CD /* ViewController.swift */; };
 		7A7305DB1F3009D30022A2CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A7305D91F3009D30022A2CD /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		7A65D93B1F33A2A900AA0C7E /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthService.swift; path = Vanity/Services/AuthService.swift; sourceTree = "<group>"; };
 		7A67113F1F337255007542EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7A71899C1F4219AB009590E5 /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProfile.swift; path = "Vanity/View Controllers/UserProfile.swift"; sourceTree = "<group>"; };
 		7A7305D21F3009D30022A2CD /* Vanity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vanity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A7305D51F3009D30022A2CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Vanity/AppDelegate.swift; sourceTree = "<group>"; };
 		7A7305D71F3009D30022A2CD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Vanity/ViewController.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				7AFFA1FB1F325EDA0001D162 /* SignUpViewController.swift */,
 				7AA3BD5E1F34B97D001D669F /* LoginViewController.swift */,
 				7AA3BD601F34C6F6001D669F /* CreateUsername.swift */,
+				7A71899C1F4219AB009590E5 /* UserProfile.swift */,
 			);
 			name = "View Controller";
 			path = ..;
@@ -315,6 +318,7 @@
 				7AFFA1F61F325E110001D162 /* Constants.swift in Sources */,
 				7AFFA1F31F325DB80001D162 /* User.swift in Sources */,
 				7A7305D81F3009D30022A2CD /* ViewController.swift in Sources */,
+				7A71899D1F4219AB009590E5 /* UserProfile.swift in Sources */,
 				7AA3BD611F34C6F6001D669F /* CreateUsername.swift in Sources */,
 				7AA3BD5F1F34B97D001D669F /* LoginViewController.swift in Sources */,
 				7A7305D61F3009D30022A2CD /* AppDelegate.swift in Sources */,

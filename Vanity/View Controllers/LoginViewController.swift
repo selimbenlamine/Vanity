@@ -143,7 +143,7 @@ class SignInViewController: UIViewController, FUIAuthDelegate {
                 // handle existing user
                 User.setCurrent(user, writeToUserDefaults: true)
                 print ("User logged in.")
-                let storyboard = UIStoryboard(name: "SignUp", bundle: .main)
+                let storyboard = UIStoryboard(name: "Main", bundle: .main)
                 if let initialViewController = storyboard.instantiateInitialViewController() {
                     self.view.window?.rootViewController = initialViewController
                     self.view.window?.makeKeyAndVisible()

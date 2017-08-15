@@ -64,8 +64,4 @@ class SignUpViewController: UIViewController {
         self.emailTextField.resignFirstResponder()
         self.nameTextField.resignFirstResponder()
     }
-    
 }
-   
-    
-

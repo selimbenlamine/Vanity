@@ -15,8 +15,9 @@ class createUsername: UIViewController {
     
     @IBAction func createUsername(_ sender: Any) {
         guard let firUser = Auth.auth().currentUser, let username = usernameTextField.text, !username.isEmpty else { return }
-        UserService.create(firUser, username: username) { (_) in
-            //   guard let user = user else { return }
+        UserService.create(firUser, username: username) { (user) in
+            guard let user = user else { return }
+            User.setCurrent(user)
             
             let storyboard = UIStoryboard(name: "Main", bundle: .main)
             if let initialViewController = storyboard.instantiateInitialViewController() {
