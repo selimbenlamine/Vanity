@@ -16,4 +16,14 @@ struct Constants {
         static let name = "name"
         static let email = "email"
     }
+    
+    struct EventDefaults {
+        static let eid = "eid"
+        static let eventTitle = "eventTitle"
+        static let date = "date"
+        static let time = "time"
+        static let city = "city"
+        static let address = "address"
+        static let eventDescription = "eventDescription"
+    }
 }

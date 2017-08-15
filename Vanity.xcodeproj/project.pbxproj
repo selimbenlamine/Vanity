@@ -20,6 +20,9 @@
 		7AA0BA181F3CB4F200A8A6BE /* MyEvent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AA0BA161F3CB4F200A8A6BE /* MyEvent.storyboard */; };
 		7AA3BD5F1F34B97D001D669F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA3BD5E1F34B97D001D669F /* LoginViewController.swift */; };
 		7AA3BD611F34C6F6001D669F /* CreateUsername.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA3BD601F34C6F6001D669F /* CreateUsername.swift */; };
+		7AA61F841F437919009D4427 /* CreateEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA61F831F437919009D4427 /* CreateEvent.swift */; };
+		7AA61F861F437EFA009D4427 /* CreateEventService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA61F851F437EFA009D4427 /* CreateEventService.swift */; };
+		7AA61F881F4386D8009D4427 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA61F871F4386D8009D4427 /* Event.swift */; };
 		7AAA28091F329AD500B5EA6C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AAA28081F329AD500B5EA6C /* GoogleService-Info.plist */; };
 		7AFFA1EE1F325D490001D162 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFFA1ED1F325D490001D162 /* UserService.swift */; };
 		7AFFA1F31F325DB80001D162 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFFA1F21F325DB80001D162 /* User.swift */; };
@@ -44,6 +47,9 @@
 		7AA0BA171F3CB4F200A8A6BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Vanity/Base.lproj/MyEvent.storyboard; sourceTree = "<group>"; };
 		7AA3BD5E1F34B97D001D669F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = "Vanity/View Controllers/LoginViewController.swift"; sourceTree = "<group>"; };
 		7AA3BD601F34C6F6001D669F /* CreateUsername.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateUsername.swift; path = "Vanity/View Controllers/CreateUsername.swift"; sourceTree = "<group>"; };
+		7AA61F831F437919009D4427 /* CreateEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEvent.swift; sourceTree = "<group>"; };
+		7AA61F851F437EFA009D4427 /* CreateEventService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateEventService.swift; path = Vanity/Services/CreateEventService.swift; sourceTree = "<group>"; };
+		7AA61F871F4386D8009D4427 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		7AAA28081F329AD500B5EA6C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7AFFA1ED1F325D490001D162 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserService.swift; path = Vanity/Services/UserService.swift; sourceTree = "<group>"; };
 		7AFFA1F21F325DB80001D162 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Vanity/Models/User.swift; sourceTree = "<group>"; };
@@ -115,6 +121,7 @@
 			children = (
 				7AFFA1ED1F325D490001D162 /* UserService.swift */,
 				7A65D93B1F33A2A900AA0C7E /* AuthService.swift */,
+				7AA61F851F437EFA009D4427 /* CreateEventService.swift */,
 			);
 			name = Services;
 			path = ..;
@@ -124,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				7AFFA1F21F325DB80001D162 /* User.swift */,
+				7AA61F871F4386D8009D4427 /* Event.swift */,
 			);
 			name = Models;
 			path = ..;
@@ -161,6 +169,7 @@
 				7AA3BD5E1F34B97D001D669F /* LoginViewController.swift */,
 				7AA3BD601F34C6F6001D669F /* CreateUsername.swift */,
 				7A71899C1F4219AB009590E5 /* UserProfile.swift */,
+				7AA61F831F437919009D4427 /* CreateEvent.swift */,
 			);
 			name = "View Controller";
 			path = ..;
@@ -315,14 +324,17 @@
 			files = (
 				7AFFA1FC1F325EDA0001D162 /* SignUpViewController.swift in Sources */,
 				7AFFA1FF1F3260760001D162 /* Helpers.swift in Sources */,
+				7AA61F841F437919009D4427 /* CreateEvent.swift in Sources */,
 				7AFFA1F61F325E110001D162 /* Constants.swift in Sources */,
 				7AFFA1F31F325DB80001D162 /* User.swift in Sources */,
 				7A7305D81F3009D30022A2CD /* ViewController.swift in Sources */,
+				7AA61F861F437EFA009D4427 /* CreateEventService.swift in Sources */,
 				7A71899D1F4219AB009590E5 /* UserProfile.swift in Sources */,
 				7AA3BD611F34C6F6001D669F /* CreateUsername.swift in Sources */,
 				7AA3BD5F1F34B97D001D669F /* LoginViewController.swift in Sources */,
 				7A7305D61F3009D30022A2CD /* AppDelegate.swift in Sources */,
 				7AFFA1EE1F325D490001D162 /* UserService.swift in Sources */,
+				7AA61F881F4386D8009D4427 /* Event.swift in Sources */,
 				7A65D93C1F33A2A900AA0C7E /* AuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
